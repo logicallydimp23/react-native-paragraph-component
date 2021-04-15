@@ -7,6 +7,11 @@ import {
   StyleSheet,
 } from 'react-native'
 
+import {
+  FONT,
+  baseConfig,
+} from '../../../src/config/themes'
+
 const styles = StyleSheet.create({
   tappable: {
     paddingHorizontal: 8,
@@ -47,38 +52,38 @@ interface ParagraphProps extends TextProps {
 }
 
 class Paragraph extends PureComponent<ParagraphProps> {
-  // public static defaultProps = {
-  //   fontType: baseConfig.paragraph.fontType,
-  //   size: baseConfig.paragraph.size,
-  //   color: baseConfig.paragraph.color,
-  //   center: baseConfig.paragraph.center,
-  //   textStyle: baseConfig.paragraph.textStyle,
-  //   tappable: baseConfig.paragraph.tappable,
-  //   onTap: baseConfig.paragraph.onTap,
-  //   testID: baseConfig.paragraph.testID,
-  //   textTransform: baseConfig.paragraph.textTransform,
-  // }
+  public static defaultProps = {
+    fontType: baseConfig.paragraph.fontType,
+    size: baseConfig.paragraph.size,
+    color: baseConfig.paragraph.color,
+    center: baseConfig.paragraph.center,
+    textStyle: baseConfig.paragraph.textStyle,
+    tappable: baseConfig.paragraph.tappable,
+    onTap: baseConfig.paragraph.onTap,
+    testID: baseConfig.paragraph.testID,
+    textTransform: baseConfig.paragraph.textTransform,
+  }
 
-  // identifyFontType = () => {
-  //   const {
-  //     fontType,
-  //   } = this.props;
+  identifyFontType = () => {
+    const {
+      fontType,
+    } = this.props;
 
-  //   switch (fontType) {
-  //     case 'light':
-  //       return FONT.light;
-  //     case 'bold':
-  //       return FONT.bold;
-  //     case 'lightItalic':
-  //       return FONT.lightItalic;
-  //     case 'italic':
-  //       return FONT.italic;
-  //     case 'boldItalic':
-  //       return FONT.boldItalic;
-  //     default:
-  //       return FONT.regular;
-  //   }
-  // }
+    switch (fontType) {
+      case 'light':
+        return FONT.light;
+      case 'bold':
+        return FONT.bold;
+      case 'lightItalic':
+        return FONT.lightItalic;
+      case 'italic':
+        return FONT.italic;
+      case 'boldItalic':
+        return FONT.boldItalic;
+      default:
+        return FONT.regular;
+    }
+  }
 
   render() {
     const {
@@ -93,7 +98,7 @@ class Paragraph extends PureComponent<ParagraphProps> {
       textTransform,
       ...props
     } = this.props;
-  
+
     if (tappable) {
       return (
         <TouchableOpacity
@@ -104,7 +109,7 @@ class Paragraph extends PureComponent<ParagraphProps> {
           <Text
             style={{
               fontSize: size,
-              // fontFamily: this.identifyFontType(),
+              fontFamily: this.identifyFontType(),
               color,
               ...center && { textAlign: 'center' },
               ...textStyle,
@@ -123,7 +128,7 @@ class Paragraph extends PureComponent<ParagraphProps> {
         testID={testID}
         style={{
           fontSize: size,
-          // fontFamily: this.identifyFontType(),
+          fontFamily: this.identifyFontType(),
           color,
           ...center && { textAlign: 'center' },
           ...textStyle,
