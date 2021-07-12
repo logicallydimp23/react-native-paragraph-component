@@ -25,6 +25,10 @@ export interface ParagraphProps extends TextProps {
   size?: number;
   color?: string;
   /**
+   * Text opacity
+   */
+   opacity?: number;
+  /**
    * Required prop!
    */
   text: string | number | null;

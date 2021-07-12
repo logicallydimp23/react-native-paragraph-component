@@ -40,6 +40,10 @@ interface ParagraphProps extends TextProps {
   size?: number;
   color?: string;
   /**
+   * Text opacity
+   */
+  opacity?: number;
+  /**
    * Required prop!
    */
   text: string | number;
@@ -56,6 +60,7 @@ class Paragraph extends PureComponent<ParagraphProps> {
     fontType: baseConfig.paragraph.fontType,
     size: baseConfig.paragraph.size,
     color: baseConfig.paragraph.color,
+    opacity: baseConfig.paragraph.opacity,
     center: baseConfig.paragraph.center,
     textStyle: baseConfig.paragraph.textStyle,
     tappable: baseConfig.paragraph.tappable,
@@ -89,6 +94,7 @@ class Paragraph extends PureComponent<ParagraphProps> {
     const {
       size,
       color,
+      opacity,
       text,
       center,
       textStyle,
@@ -111,6 +117,7 @@ class Paragraph extends PureComponent<ParagraphProps> {
               fontSize: size,
               fontFamily: this.identifyFontType(),
               color,
+              opacity,
               ...center && { textAlign: 'center' },
               ...textStyle,
               ...{ textTransform }
