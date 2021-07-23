@@ -137,6 +137,7 @@ class Paragraph extends PureComponent<ParagraphProps> {
           fontSize: size,
           fontFamily: this.identifyFontType(),
           color,
+          opacity,
           ...center && { textAlign: 'center' },
           ...textStyle,
           ...{ textTransform }
