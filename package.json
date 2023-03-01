@@ -1,6 +1,6 @@
 {
   "name": "react-native-paragraph-component",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Custom component for <Text />",
   "main": "index.ts",
   "scripts": {
