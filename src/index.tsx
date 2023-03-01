@@ -5,6 +5,8 @@ import {
   TouchableOpacity,
   TextProps,
   StyleSheet,
+  TextStyle,
+  ViewStyle,
 } from 'react-native'
 
 import {
@@ -19,9 +21,9 @@ const styles = StyleSheet.create({
   },
 })
 
-type fontTypes = 'light' | 'bold' | 'regular' | 'lightItalic' | 'italic' | 'boldItalic'
+export type fontTypes = 'light' | 'bold' | 'regular' | 'lightItalic' | 'italic' | 'boldItalic'
 
-interface ParagraphProps extends TextProps {
+export interface ParagraphProps extends TextProps {
   /**
    * This can be one of the following values:
    *
@@ -48,7 +50,7 @@ interface ParagraphProps extends TextProps {
    */
   text: string | number;
   center?: boolean;
-  textStyle?: object;
+  textStyle?: TextStyle | ViewStyle;
   tappable?: boolean;
   onTap?: () => void;
   textTransform?: "none" | "capitalize" | "uppercase" | "lowercase" | undefined;
@@ -69,7 +71,7 @@ class Paragraph extends PureComponent<ParagraphProps> {
     textTransform: baseConfig.paragraph.textTransform,
   }
 
-  identifyFontType = () => {
+  identifyFontType = (): any => {
     const {
       fontType,
     } = this.props;
@@ -120,7 +122,7 @@ class Paragraph extends PureComponent<ParagraphProps> {
               opacity,
               ...center && { textAlign: 'center' },
               ...textStyle,
-              ...{ textTransform }
+              ...{ textTransform },
             }}
             {...props}
           >
@@ -140,7 +142,7 @@ class Paragraph extends PureComponent<ParagraphProps> {
           opacity,
           ...center && { textAlign: 'center' },
           ...textStyle,
-          ...{ textTransform }
+          ...{ textTransform },
         }}
         {...props}
       >
